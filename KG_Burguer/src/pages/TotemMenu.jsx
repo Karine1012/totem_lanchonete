@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './TelaMenu.module.css';
+import styles from './TotemMenu.module.css';
 import CategoriaItem from '../components/CategoriaItem';
 import ProdutoCard from '../components/ProdutoCard';
 import VariacaoProduto from '../components/VariacaoProduto';

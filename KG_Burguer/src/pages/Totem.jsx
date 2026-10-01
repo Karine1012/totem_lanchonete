@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import styles from './Totem.module.css';
-import TelaSplash from './TelaSplash';
-import TelaLocal from './TelaLocal';
-import TelaMenu from './TelaMenu';
-import TelaResumo from './TelaResumo';
-import TelaModificarItem from './TelaModificarItem';
-import TelaPagamento from './TelaPagamento';
-import TelaProcessando from './TelaProcessando';
-import TelaSucesso from './TelaSucesso';
+import TotemSplash from './TotemSplash.jsx';
+import TotemLocal from './TotemLocal.jsx';
+import TotemMenu from './TotemMenu.jsx';
+import TotemResumo from './TotemResumo.jsx';
+import TotemModificarItem from './TotemModificarItem.jsx';
+import TotemPagamento from './TotemPagamento.jsx';
+import TotemProcessando from './TotemProcessando.jsx';
+import TotemSucesso from './TotemSucesso.jsx';
 import { categoriasDados, produtosDados } from '../data/menuDados';
 
 export default function Totem() {
@@ -53,7 +53,7 @@ export default function Totem() {
         setNumeroPedido(fakeOrderNumber);
         navegar('/sucesso');
 
-        // Volta para a tela inicial após 5 segundos na tela de sucesso
+        // Volta para a totem inicial após 5 segundos na totem de sucesso
         setTimeout(() => {
           navegar('/');
           setCarrinho([]);
@@ -67,12 +67,12 @@ export default function Totem() {
   return (
     <div className={styles["totem-wrapper"]}>
       <Routes>
-        <Route path="/" element={<TelaSplash executarComAtraso={executarComAtraso} />} />
+        <Route path="/" element={<TotemSplash executarComAtraso={executarComAtraso} />} />
 
-        <Route path="/local" element={<TelaLocal executarComAtraso={executarComAtraso} setLocal={setLocal} />} />
+        <Route path="/local" element={<TotemLocal executarComAtraso={executarComAtraso} setLocal={setLocal} />} />
 
         <Route path="/menu" element={
-          <TelaMenu
+          <TotemMenu
             categorias={categorias}
             produtos={produtos}
             categoriaSelecionada={categoriaSelecionada}
@@ -84,7 +84,7 @@ export default function Totem() {
         } />
 
         <Route path="/resumo" element={
-          <TelaResumo
+          <TotemResumo
             carrinho={carrinho}
             setCarrinho={setCarrinho}
             executarComAtraso={executarComAtraso}
@@ -94,7 +94,7 @@ export default function Totem() {
         } />
 
         <Route path="/modificar" element={
-          <TelaModificarItem
+          <TotemModificarItem
             itemParaModificar={itemParaModificar}
             setItemParaModificar={setItemParaModificar}
             indiceModificacao={indiceModificacao}
@@ -105,15 +105,15 @@ export default function Totem() {
         } />
 
         <Route path="/pagamento" element={
-          <TelaPagamento
+          <TotemPagamento
             executarComAtraso={executarComAtraso}
             processarPagamento={processarPagamento}
           />
         } />
 
-        <Route path="/processando" element={<TelaProcessando metodoPagamento={metodoPagamento} />} />
+        <Route path="/processando" element={<TotemProcessando metodoPagamento={metodoPagamento} />} />
 
-        <Route path="/sucesso" element={<TelaSucesso numeroPedido={numeroPedido} />} />
+        <Route path="/sucesso" element={<TotemSucesso numeroPedido={numeroPedido} />} />
       </Routes>
     </div>
   );

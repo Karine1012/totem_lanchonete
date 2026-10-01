@@ -1,14 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './TelaModificarItem.module.css';
+import styles from './TotemModificarItem.module.css';
 
-export default function TelaModificarItem({
+export default function TotemModificarItem({
   itemParaModificar, setItemParaModificar, indiceModificacao, carrinho, setCarrinho, executarComAtraso
 }) {
   const navegar = useNavigate();
 
   return (
-    <div className={styles["tela-review"]} style={{ justifyContent: 'center' }}>
+    <div className={styles["totem-review"]} style={{ justifyContent: 'center' }}>
       <h2>Modificar Item</h2>
 
       <div className={styles["quantity-container"]}>

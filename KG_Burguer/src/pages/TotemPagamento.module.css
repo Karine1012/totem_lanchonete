@@ -1,5 +1,5 @@
 
-.tela-pagamento {
+.totem-pagamento {
   height: 100%;
   background-color: #000;
   display: flex;
@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-.tela-pagamento h2 {
+.totem-pagamento h2 {
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
