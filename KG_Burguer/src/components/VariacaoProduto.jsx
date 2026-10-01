@@ -8,20 +8,20 @@ export default function VariacaoProduto({ produtoAtivo, selecionarVariacao, exec
       <button className={styles["btn-voltar-inline"]} onClick={() => executarComAtraso(() => setProdutoAtivo(null))}>Voltar</button>
       <h2>Escolha a opção:</h2>
       <div className={styles["produtos-grid"]}>
-        {produtoAtivo.category.name.includes('Filmes') ? (
+        {produtoAtivo.category.name.includes('Lanches') ? (
           <>
             <ProdutoCard
               produto={produtoAtivo}
               onClick={() => selecionarVariacao('Meia-Entrada', 0)}
-              nomeOpcao="Meia-Entrada"
-              iconeVisual="🎫"
+              nomeOpcao="Lanches"
+              iconeVisual="🍔"
             />
             <ProdutoCard
               produto={produtoAtivo}
               onClick={() => selecionarVariacao('Inteira', produtoAtivo.price)}
-              nomeOpcao="Inteira"
+              nomeOpcao="Combos"
               precoExtra={produtoAtivo.price}
-              iconeVisual="🎟️"
+              iconeVisual="🍟"
             />
           </>
         ) : produtoAtivo.category.name === 'Bomboniere' || produtoAtivo.category.name === 'Bebidas' ? (
