@@ -13,7 +13,12 @@ export default function TotemModificarItem({
 
       <div className={styles["quantity-container"]}>
         <h2 style={{ fontSize: '2rem' }}>{itemParaModificar.name}</h2>
-        <div className={styles["produto-img"]} style={{ fontSize: '8rem', margin: '30px 0' }}>{itemParaModificar.image}</div>
+        <img
+          className={styles["produto-img"]}
+          src={itemParaModificar.image}
+          alt={itemParaModificar.name}
+          style={{ width: '220px', height: '220px', objectFit: 'cover', margin: '30px 0', borderRadius: '16px' }}
+        />
 
         <div className={styles["quantity-controls"]}>
           <button className={styles["btn-qty"]} onClick={() => setItemParaModificar({ ...itemParaModificar, quantity: Math.max(1, itemParaModificar.quantity - 1) })}>-</button>

@@ -3,28 +3,33 @@ import styles from './VariacaoProduto.module.css';
 import ProdutoCard from './ProdutoCard';
 
 export default function VariacaoProduto({ produtoAtivo, selecionarVariacao, executarComAtraso, setProdutoAtivo }) {
+  const categoriaNome = produtoAtivo?.category?.name ?? '';
+  const categoriaNormalizada = categoriaNome.toLowerCase();
+  const eCategoriaLanches = categoriaNormalizada.includes('lanche');
+  const eCategoriaComTamanho = ['bomboniere', 'bebidas', 'acompanhamentos'].includes(categoriaNormalizada);
+
   return (
     <div className={styles["options-container"]}>
       <button className={styles["btn-voltar-inline"]} onClick={() => executarComAtraso(() => setProdutoAtivo(null))}>Voltar</button>
       <h2>Escolha a opção:</h2>
       <div className={styles["produtos-grid"]}>
-        {produtoAtivo.category.name.includes('Lanches') ? (
+        {eCategoriaLanches ? (
           <>
             <ProdutoCard
               produto={produtoAtivo}
-              onClick={() => selecionarVariacao('Meia-Entrada', 0)}
+              onClick={() => selecionarVariacao('lanches', 0)}
               nomeOpcao="Lanches"
               iconeVisual="🍔"
             />
             <ProdutoCard
               produto={produtoAtivo}
-              onClick={() => selecionarVariacao('Inteira', produtoAtivo.price)}
-              nomeOpcao="Combos"
+              onClick={() => selecionarVariacao('combos', produtoAtivo.price)}
+              nomeOpcao="combos"
               precoExtra={produtoAtivo.price}
               iconeVisual="🍟"
             />
           </>
-        ) : produtoAtivo.category.name === 'Bomboniere' || produtoAtivo.category.name === 'Bebidas' ? (
+        ) : eCategoriaComTamanho ? (
           <>
             <ProdutoCard
               produto={produtoAtivo}
